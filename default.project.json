@@ -1,11 +1,14 @@
 {
-  "name": "blocky-league",
+  "name": "template",
   "tree": {
     "$className": "DataModel",
 
     "ReplicatedStorage": {
       "Common": {
         "$path": "src/ReplicatedStorage"
+      },
+      "Packages": {
+        "$path": "Packages"
       }
     },
 
@@ -26,7 +29,7 @@
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
-      },
+      }
     },
 
     "Lighting": {

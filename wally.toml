@@ -1,6 +1,6 @@
 [package]
-name = "choppedtuna/blockyleague"
-description = "Blocky League"
+name = "choppedtuna/template"
+description = "Game Template"
 version = "0.1.0"
 realm = "shared"
 registry = "https://github.com/upliftgames/wally-index"
