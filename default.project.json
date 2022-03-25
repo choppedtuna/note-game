@@ -1,26 +1,36 @@
 {
-  "name": "template",
+  "name": "note-game",
   "tree": {
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "Common": {
-        "$path": "src/ReplicatedStorage"
+	  "$className": "ReplicatedStorage",
+      "Controllers": {
+        "$path": "src/ReplicatedStorage/Controllers"
       },
+	  "Shared": {
+        "$path": "src/ReplicatedStorage/Shared"
+	  },
+	  "Data": {
+		"$path": "src/ReplicatedStorage/Data"
+	  },
       "Packages": {
         "$path": "Packages"
       }
     },
 
     "ServerScriptService": {
-      "Server": {
-        "$path": "src/ServerScriptService"
-      }
-    },
+		"$className": "ServerScriptService",
+		"src": {
+			"$path": "src/ServerScriptService"
+		}
+	},
 
     "StarterPlayer": {
+	  "$className": "StarterPlayer",
       "StarterPlayerScripts": {
-        "Client": {
+		"$className": "StarterPlayerScripts",
+        "src": {
           "$path": "src/StarterPlayerScripts"
         }
       }

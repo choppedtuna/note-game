@@ -3,7 +3,7 @@
 registry = "test"
 
 [[package]]
-name = "choppedtuna/blockyleague"
+name = "choppedtuna/template"
 version = "0.1.0"
 dependencies = [["Knit", "sleitnick/knit@1.4.4"]]
 
