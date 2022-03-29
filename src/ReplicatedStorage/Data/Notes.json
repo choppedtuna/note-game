@@ -1,50 +1,58 @@
-[
-	{
-		"noteValue": 1,
-		"noteTones": ["C"]
+{
+	"pitchReference": {
+		"Octave": 4,
+		"Frequency": 440,
+		"MIDI": 69,
+		"Tone": "A"
 	},
-	{
-		"noteValue": 2,
-		"noteTones": ["C#", "Db"]
-	},
-	{
-		"noteValue": 3,
-		"noteTones": ["D"]
-	},
-	{
-		"noteValue": 4,
-		"noteTones": ["D#", "Eb"]
-	},
-	{
-		"noteValue": 5,
-		"noteTones": ["E"]
-	},
-	{
-		"noteValue": 6,
-		"noteTones": ["F"]
-	},
-	{
-		"noteValue": 7,
-		"noteTones": ["F#", "Gb"]
-	},
-	{
-		"noteValue": 8,
-		"noteTones": ["G"]
-	},
-	{
-		"noteValue": 9,
-		"noteTones": ["G#", "Ab"]
-	},
-	{
-		"noteValue": 10,
-		"noteTones": ["A"]
-	},
-	{
-		"noteValue": 11,
-		"noteTones": ["A#", "Bb"]
-	},
-	{
-		"noteValue": 12,
-		"noteTones": ["B"]
-	}
-]
+	"chromaticScale": [
+		{
+			"noteValue": 1,
+			"noteTones": ["C"]
+		},
+		{
+			"noteValue": 2,
+			"noteTones": ["C#", "Db"]
+		},
+		{
+			"noteValue": 3,
+			"noteTones": ["D"]
+		},
+		{
+			"noteValue": 4,
+			"noteTones": ["D#", "Eb"]
+		},
+		{
+			"noteValue": 5,
+			"noteTones": ["E"]
+		},
+		{
+			"noteValue": 6,
+			"noteTones": ["F"]
+		},
+		{
+			"noteValue": 7,
+			"noteTones": ["F#", "Gb"]
+		},
+		{
+			"noteValue": 8,
+			"noteTones": ["G"]
+		},
+		{
+			"noteValue": 9,
+			"noteTones": ["G#", "Ab"]
+		},
+		{
+			"noteValue": 10,
+			"noteTones": ["A"]
+		},
+		{
+			"noteValue": 11,
+			"noteTones": ["A#", "Bb"]
+		},
+		{
+			"noteValue": 12,
+			"noteTones": ["B"]
+		}
+	]
+}

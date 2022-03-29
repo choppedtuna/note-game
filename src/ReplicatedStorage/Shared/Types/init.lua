@@ -1,14 +1,18 @@
 local types = {}
 
-type INoteFrequency = {
+export type INoteFrequency = {
 	Frequency: number
 }
 
-type INoteTone = {
+export type INoteTone = {
 	Octave: number,
 	Tone: string
 }
 
-export type INote = INoteTone & INoteFrequency
+export type INoteMIDI = {
+	MIDI: number,
+}
+
+export type INote = INoteTone & INoteFrequency & INoteMIDI
 
 return nil

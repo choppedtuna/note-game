@@ -10,7 +10,7 @@ local Types = require(ReplicatedStorage.Shared.Types)
 local Note = {}
 Note.__index = Note
 
-type INote = Types.INote
+export type INote = Types.INote
 
 function Note.new(createNoteParams: INote)
 	assert(#createNoteParams >= 1, "Must provide at least one create param")
@@ -18,24 +18,28 @@ function Note.new(createNoteParams: INote)
 	local frequency = createNoteParams.Frequency
 	local octave = createNoteParams.Octave
 	local tone = createNoteParams.Tone
+	local midi = createNoteParams.MIDI
+
+	local properties = {}
 
 	if (octave ~= nil or tone ~= nil) then
 		assert(octave ~= nil and tone ~= nil, "Must provide both Octave and Frequency create params")
 
-		do
-			Assert.isOctave(octave)
-			Assert.isTone(tone)
-		end
+		Assert.isOctave(octave)
+		Assert.isTone(tone)
 
-		frequency = NoteLogic.fromTone(octave, tone)
-	else
-		assert(frequency ~= nil, "Must provide Frequency as create params")
-		
-		do
-			Assert.isFrequency(frequency)
-		end
+		properties = NoteLogic.fromTone(octave, tone)
+		frequency, midi = properties.Frequency, properties.Tone
+	elseif (frequency ~= nil) then
+		Assert.isFrequency(frequency)
 
-		tone, octave = NoteLogic.fromFrequency(frequency)
+		properties = NoteLogic.fromFrequency(frequency)
+		octave, tone, midi = properties.Octave, properties.Tone, properties.MIDI
+	elseif (midi ~= nil) then
+		Assert.isMIDI(midi)
+
+		properties = NoteLogic.fromMIDI(midi)
+		frequency, octave, tone = properties.Frequency, properties.Octave, properties.Tone
 	end
 
 	local self = {
@@ -47,14 +51,28 @@ function Note.new(createNoteParams: INote)
 	return setmetatable(self, Note)
 end
 
+-- Octave
+
 function Note:GetOctave(): string
 	return self.Octave
 end
+
+-- Tone
 
 function Note:GetTone(): string
 	return self.Tone
 end
 
+-- Frequency
+
 function Note:GetFrequency(): number
 	return self.Frequency
 end
+
+-- MIDI
+
+function Note:GetMIDI(): number
+	return self.MIDI
+end
+
+return Note

@@ -13,7 +13,12 @@ function Assert.isOctave(octave: number): boolean
 end
 
 function Assert.isTone(tone: string): boolean
-	assert(typeof(tone) == "number", "Tone must be string type")
+	assert(typeof(tone) == "string", "Tone must be string type")
+	return true
+end
+
+function Assert.isMIDI(midi: number): boolean
+	assert(typeof(midi) == "number", "MIDI must be number type" )
 	return true
 end
 
