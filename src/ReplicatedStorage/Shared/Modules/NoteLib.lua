@@ -1,5 +1,12 @@
 --!strict
 
+--[[ Formulas:
+	fn  =  2^(n/12)*440 Hz
+	n  =  12*log2(fn/440 Hz)
+	m  =  12*log2(fm/440 Hz) + 69
+	fm  =  2(m−69)/12(440 Hz)
+]]
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local NoteInfo = require(ReplicatedStorage.Shared.Modules.NoteInfo)
