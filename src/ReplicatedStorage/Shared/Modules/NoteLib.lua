@@ -18,7 +18,7 @@ local NoteLib = {}
 
 -- Conversion F(x)
 
--- Freq(X) -> Y
+-- Freq(x) -> Y
 function NoteLib.freq_to_value(frequency: number): number
 	return (math.floor((12 * math.log(frequency / PITCH_REFERENCE.Frequency, 2)) + 9) % 12) + 1
 end
@@ -35,7 +35,7 @@ function NoteLib.freq_to_midi(frequency: number): number
 	return math.floor(12 * math.log(frequency / PITCH_REFERENCE.Frequency, 2)) + PITCH_REFERENCE.MIDI
 end
 
--- Midi(X) -> Y
+-- Midi(x) -> Y
 function NoteLib.midi_to_freq(midi: number): number
 	return math.pow(2, (midi - PITCH_REFERENCE.MIDI) / 12) * PITCH_REFERENCE.Frequency
 end
@@ -48,7 +48,7 @@ function NoteLib.midi_to_tone(midi: number): string
 	return NoteInfo.ValueToTone[(midi % 12) + 1][1]
 end
 
--- Octave(X) & Tone(X) -> Y
+-- Octave(x) & Tone(x) -> Y
 function NoteLib.tone_to_value(tone: string): number
 	return NoteInfo.ToneToValue[tone]
 end
