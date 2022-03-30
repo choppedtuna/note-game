@@ -10,15 +10,19 @@ local Types = require(ReplicatedStorage.Shared.Types)
 local Note = {}
 Note.__index = Note
 
+type INoteTone = Types.INoteTone
+type INoteFrequency = Types.INoteFrequency
+type INoteMIDI = Types.INoteMIDI
+
 export type INote = Types.INote
 
-function Note.new(createNoteParams: INote)
-	assert(#createNoteParams >= 1, "Must provide at least one create param")
-
+function Note.new(createNoteParams: INoteTone | INoteFrequency | INoteMIDI)
 	local frequency = createNoteParams.Frequency
 	local octave = createNoteParams.Octave
 	local tone = createNoteParams.Tone
 	local midi = createNoteParams.MIDI
+
+	Assert.minParams(1, frequency, octave, tone, midi)
 
 	local properties = {}
 
@@ -29,7 +33,7 @@ function Note.new(createNoteParams: INote)
 		Assert.isTone(tone)
 
 		properties = NoteLogic.fromTone(octave, tone)
-		frequency, midi = properties.Frequency, properties.Tone
+		frequency, midi = properties.Frequency, properties.MIDI
 	elseif (frequency ~= nil) then
 		Assert.isFrequency(frequency)
 
@@ -45,10 +49,22 @@ function Note.new(createNoteParams: INote)
 	local self = {
 		Frequency = frequency,
 		Octave = octave,
-		Tone = tone
-	}
+		Tone = tone,
+		MIDI = midi
+	} :: INote
 
 	return setmetatable(self, Note)
+end
+
+-- Serialize
+
+function Note:Serialize(): INote
+	return {
+		Frequency = self:GetFrequency(),
+		Octave = self:GetOctave(),
+		Tone = self:GetTone(),
+		MIDI = self:GetMIDI()
+	} :: INote
 end
 
 -- Octave

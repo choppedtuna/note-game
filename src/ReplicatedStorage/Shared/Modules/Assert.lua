@@ -2,6 +2,19 @@
 
 local Assert = {}
 
+function Assert.minParams(min: number, ...)
+	local args = {...}
+	local exists = {}
+
+	for i,v in pairs(args) do
+		table.insert(exists, v)
+	end
+
+	local count = #exists
+
+	assert(count >= min, string.format("Expected at least %d params but received %d", min, count))
+end
+
 function Assert.isFrequency(frequency: number): boolean
 	assert(typeof(frequency) == "number", "Frequency must be number type")
 	return true
