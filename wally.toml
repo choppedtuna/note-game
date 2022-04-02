@@ -8,3 +8,4 @@ exclude = ["node_modules"]
 
 [dependencies]
 Knit = "sleitnick/knit@^1"
+testez = "roblox/testez@0.4.1"

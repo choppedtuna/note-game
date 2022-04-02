@@ -16,7 +16,11 @@ type INoteMIDI = Types.INoteMIDI
 
 export type INote = Types.INote
 
-function Note.new(createNoteParams: INoteTone | INoteFrequency | INoteMIDI)
+export type Note = INote & {
+	Serialize: () -> INote
+}
+
+function Note.new(createNoteParams: INoteTone | INoteFrequency | INoteMIDI): Note
 	local frequency = createNoteParams.Frequency
 	local octave = createNoteParams.Octave
 	local tone = createNoteParams.Tone
@@ -53,7 +57,7 @@ function Note.new(createNoteParams: INoteTone | INoteFrequency | INoteMIDI)
 		MIDI = midi
 	} :: INote
 
-	return setmetatable(self, Note)
+	return setmetatable(self, Note) :: Note
 end
 
 -- Serialize
@@ -65,30 +69,6 @@ function Note:Serialize(): INote
 		Tone = self:GetTone(),
 		MIDI = self:GetMIDI()
 	} :: INote
-end
-
--- Octave
-
-function Note:GetOctave(): string
-	return self.Octave
-end
-
--- Tone
-
-function Note:GetTone(): string
-	return self.Tone
-end
-
--- Frequency
-
-function Note:GetFrequency(): number
-	return self.Frequency
-end
-
--- MIDI
-
-function Note:GetMIDI(): number
-	return self.MIDI
 end
 
 return Note

@@ -5,11 +5,16 @@ registry = "test"
 [[package]]
 name = "choppedtuna/template"
 version = "0.1.0"
-dependencies = [["Knit", "sleitnick/knit@1.4.4"]]
+dependencies = [["Knit", "sleitnick/knit@1.4.4"], ["testez", "roblox/testez@0.4.1"]]
 
 [[package]]
 name = "evaera/promise"
 version = "3.2.1"
+dependencies = []
+
+[[package]]
+name = "roblox/testez"
+version = "0.4.1"
 dependencies = []
 
 [[package]]

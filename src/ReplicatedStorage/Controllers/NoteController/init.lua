@@ -18,6 +18,7 @@ function NoteController:KnitStart()
 	print('Started!')
 
 	local myNote = Note.new({Frequency = 440})
+	print(myNote)
 end
 
 return NoteController
